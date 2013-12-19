@@ -53,11 +53,12 @@ include('listerDir.php');
 					<input type="submit" value="Deconnexion"/>
 				</form>
 			</div>
-			<div class="connexion">
+			
 			<?php
 			if (!isset($_SESSION['admin']))
 			{
 			?>
+			<div class="connexion">
 				<input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Identifiant"/>
 				<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
 				<button class="buttonConnexion"  >Connexion</button>

@@ -68,59 +68,61 @@ include('listerDir.php');
 				</div>
 			</div>
 			<div class="cmd" >
-				<div class="co commande" 
-						<?php
-						if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
-						{
-							echo "style='display:none;'";
-						}
-						?>>
-					<i class="fa fa-key fa-3x"></i>
-						<div class="connexion">
-							<label for="identifiant">Identifiant</label>
-							<input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Identifiant"/>
-							<label for="motDePasse">Mot de passe</label>
-							<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
-							<button class="buttonConnexion"  >Connexion</button>
-						</div>
-				</div>
-				<div class="deconnexion commande" 
+				<div class="cmdCont" >
+					<div class="co commande" 
 							<?php
-							if (!isset($_SESSION['admin']))
-							{ 
+							if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
+							{
 								echo "style='display:none;'";
 							}
-							?>
-							>
-					<i class="fa fa-unlock fa-3x"></i>
-								<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
-									<input type="hidden" name="categorie" value="caty"/>
-									<input type="submit" value="Deconnexion"/>
-								</form>
-				</div>
-				
-				
-				<div class="suppr commande" >
-					<i class="fa fa-trash-o fa-3x"></i>
-				</div>
-				<a href="#?w=500" rel="popupAjouterImage" class="poplight">
-					<div class="ajouter commande" >
-						<i class="fa fa-cloud-upload fa-3x"></i>
+							?>>
+						<i class="fa fa-key fa-3x"></i>
+							<div class="connexion">
+								<label for="identifiant">Identifiant</label>
+								<input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Identifiant"/>
+								<label for="motDePasse">Mot de passe</label>
+								<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
+								<button class="buttonConnexion"  >Connexion</button>
+							</div>
 					</div>
-				</a>
-				<div class="rech commande" >
-				<i class="fa fa-search fa-3x"></i>
-					<div class="ui-widget">
-						<label for="Recherche">Rechercher catégorie: </label>
-						<input id="Recherche">
-						<div class="valeurAutocompletion"></div>
+					<div class="deconnexion commande" 
+								<?php
+								if (!isset($_SESSION['admin']))
+								{ 
+									echo "style='display:none;'";
+								}
+								?>
+								>
+						<i class="fa fa-unlock fa-3x"></i>
+									<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
+										<input type="hidden" name="categorie" value="caty"/>
+										<input type="submit" value="Deconnexion"/>
+									</form>
 					</div>
+					
+					
+					<div class="suppr commande" >
+						<i class="fa fa-trash-o fa-3x"></i>
+					</div>
+					<a href="#?w=500" rel="popupAjouterImage" class="poplight">
+						<div class="ajouter commande" >
+							<i class="fa fa-cloud-upload fa-3x"></i>
+						</div>
+					</a>
+					<div class="rech commande" >
+					<i class="fa fa-search fa-3x"></i>
+						<div class="ui-widget">
+							<label for="Recherche">Rechercher catégorie: </label>
+							<input id="Recherche">
+							<div class="valeurAutocompletion"></div>
+						</div>
+					</div>
+					<a href="index.php">
+						<div class="returnCategorie commande" >
+							<i class="fa fa-mail-reply-all fa-3x"></i>
+						</div>
+					</a>
 				</div>
-				<a href="index.php">
-					<div class="returnCategorie commande" >
-						<i class="fa fa-mail-reply-all fa-3x"></i>
-					</div>
-				</a>
 			</div>
 			<div class="info">
 				<?php
@@ -197,8 +199,8 @@ include('listerDir.php');
 			}
 			else
 			{
-				// $(".connexion").css('opacity','0');
-				// $(".connexion").css('display','none');
+				$(".connexion").css('opacity','0');
+				$(".connexion").css('display','none');
 			}
 		});
 		$(".co").mouseenter(function() {
@@ -215,8 +217,8 @@ include('listerDir.php');
 			}
 			else
 			{
-				// $(".connexion").css('opacity','0');
-				// $(".connexion").css('display','none');
+				$(".connexion").css('opacity','0');
+				$(".connexion").css('display','none');
 			}
 		});
 		

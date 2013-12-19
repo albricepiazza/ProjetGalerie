@@ -4,7 +4,7 @@ body{
 	background-color: #F2F1F1;
 }
 #page{
-	width: 1200px;
+	width: 70%;
 	margin: auto;
 	background-color: #F2F1F1;
 	border-radius: 20px;
@@ -215,26 +215,58 @@ form#ajouterImage input[type=submit]{
 	font-size: 10px;
 	position: absolute;
 	top: 0px;
-	right: 100px;
+	right: 102px;
 	opacity: 0;
+	
+	padding: 5px;
+	border: 3px solid #404346;
  
-	background-color: white;
-/* 	padding: 4px 10px 4px 2px;
- */ 
-	-webkit-box-shadow: 2px 2px 2px #333333;
-	-moz-box-shadow: 2px 2px 2px #333333;
-	-o-box-shadow: 2px 2px 2px #333333;
-	box-shadow: 2px 2px 2px #333333;
+	background-color: #F2F1F1;
+	
+	-webkit-box-shadow: 0px 0px 10px #333333;
+	-moz-box-shadow: 0px 0px 10px #333333;
+	-o-box-shadow: 0px 0px 10px #333333;
+	box-shadow: 0px 0px 10px #333333;
  
 	-webkit-border-radius: 0 3px 3px 0;
 	-moz-border-radius: 0 3px 3px 0;
 	-o-border-radius: 0 3px 3px 0;
 	border-radius: 0 3px 3px 0;
+}
+.ui-widget{
+	display:none;
+	font-size: 10px;
+	position: absolute;
+	top: 0px;
+	right: 102px;
+	opacity: 0;
+	
+	padding: 5px;
+	border: 3px solid #404346;
  
-	-webkit-transition: opacity 0.5s ease-in-out;
-	-moz-transition: opacity 0.5s ease-in-out;
-	-o-transition: opacity 0.5s ease-in-out;
-	transition: opacity 0.5s ease-in-out;
+	background-color: #F2F1F1;
+	
+	-webkit-box-shadow: 0px 0px 10px #333333;
+	-moz-box-shadow: 0px 0px 10px #333333;
+	-o-box-shadow: 0px 0px 10px #333333;
+	box-shadow: 0px 0px 10px #333333;
+ 
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	-o-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;
+}
+.connexion label{
+	margin-left: 2px;
+}
+.connexion input{
+	color: white;
+	background-color: #707070;
+}
+.connexion button{
+	background-color: #707070;
+	color: white;
+	cursor: pointer;
 }
 .deconnexion
 {
@@ -264,31 +296,6 @@ form#ajouterImage input[type=submit]{
 	position: relative;
 /* 	background-color: blue;
  */}
-.ui-widget
-{
-	display:none;
-	font-size: 10px;
-	position: relative;
-	top: -50px;
-	right: 100px;
-	opacity: 0;
-	z-index: 1000;
-	background-color: white;
-	-webkit-box-shadow: 2px 2px 2px #333333;
-	-moz-box-shadow: 2px 2px 2px #333333;
-	-o-box-shadow: 2px 2px 2px #333333;
-	box-shadow: 2px 2px 2px #333333;
- 
-	-webkit-border-radius: 0 3px 3px 0;
-	-moz-border-radius: 0 3px 3px 0;
-	-o-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
- 
-	-webkit-transition: opacity 0.5s ease-in-out;
-	-moz-transition: opacity 0.5s ease-in-out;
-	-o-transition: opacity 0.5s ease-in-out;
-	transition: opacity 0.5s ease-in-out;
-}
 #Recherche
 {
 	width: 100px;
@@ -312,8 +319,6 @@ form#ajouterImage input[type=submit]{
 .commande:hover
 {
 	cursor: pointer;
-	opacity: 1;
-	color : #707070;
 }
 .commande:hover .fa
 {
@@ -322,7 +327,6 @@ form#ajouterImage input[type=submit]{
 }
 .commande
 {
-	opacity: 0.8;
 	border: 1px solid transparent;
 }
 /** Autocompletion **/
@@ -352,7 +356,7 @@ form#ajouterImage input[type=submit]{
 	height: 100%;
 	background-color: #404346;
 	position: fixed;
-	left: 0;
+	left: -200px;
 	top: 0;
 	color: white;
 }

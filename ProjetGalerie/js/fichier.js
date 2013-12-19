@@ -255,7 +255,8 @@
 		 });
 		});
 		
-		/** Requete Ajax - Click sur bouton connexion / deconnexion **/
+		/** Requete Ajax - Click sur bouton connexion **/
+		var connect = false;
 		$( ".buttonConnexion" ).click(function(){
 			var motDePasse = $(".motDePasse").val();
 			var identifiant = $(".identifiant").val();
@@ -264,7 +265,10 @@
 			   url: "connexion.php",
 			   data: "identifiant="+identifiant+"&motDePasse="+motDePasse,
 			   success: function(msg){
+					connect = true;
 					$('.info').html('<p>'+msg+'</p>');
+					$(".cmd").empty();
+					$(".cmd").load("imageCategorie.php .cmdCont");
 					if(msg == "Connexion réussi")
 					{
 						$('.connexion').hide();
@@ -321,16 +325,46 @@
 		/** On vide la champ recherche au lancement de la page **/
 		$("#Recherche").attr('value','');
 		
+		/** Deplier block pour supprimer categorie **/
+		function deplierBlockSupprimer()
+		{
+			$('.suppr.commande').unbind('click');
+			if($('.supprimerMiniImageGalerie').hasClass('present'))
+			{
+				$('.supprimerMiniImageGalerie').animate({
+					'left': '-200px'
+				}, 300,function()
+				{
+					$(this).removeClass('present');
+					$('.suppr.commande').bind('click',deplierBlockSupprimer);
+				});
+			}
+			else
+			{
+				$('.supprimerMiniImageGalerie').animate({
+					'left': '0'
+				}, 300,function()
+				{
+					$(this).addClass('present');
+					$('.suppr.commande').bind('click',deplierBlockSupprimer);
+				});
+			}
+		}
+		$('.suppr.commande').bind('click',deplierBlockSupprimer);
+		
 		/** Re-affecter fonction après requete Ajax **/
 		$(document).ajaxComplete(function(event)
 		{
-			$('.galerieCategorie').galerie(
+			if(!connect)
 			{
-				miniatureWidth: '120px',
-				miniatureHeight: '80px',
-				grandWidth: '100%',
-				grandHeight: ''
-			});
+				$('.galerieCategorie').galerie(
+				{
+					miniatureWidth: '120px',
+					miniatureHeight: '80px',
+					grandWidth: '100%',
+					grandHeight: ''
+				});
+			}
 			
 			imageAjouterUneCategorie();
 			$('.galerie .image_galerie.ajouterCat').bind('mouseenter', passageSourisAjouterCategorie);
@@ -345,6 +379,7 @@
 			lienPopUpSupprimerImageMiniature();
 			$('a.poplight[href^=#]').bind('click', clickSurLienPopUp);
 			$("#Recherche").bind('keyup',rechercherValeur);
+			$('suppr.commande').bind('click',deplierBlockSupprimer);
 		});
 		
 	});

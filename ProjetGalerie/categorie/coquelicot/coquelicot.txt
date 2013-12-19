@@ -1,3 +1,6 @@
 //-------------aaa.jpg
 $descriptionImage_aaa.jpg = description image 1
 $titleImage_aaa.jpg = image 1
+//-------------totototoatatatat.jpg
+$descriptionImage_totototoatatatat.jpg = tretergergreg
+$titleImage_totototoatatatat.jpg = tatataerter
