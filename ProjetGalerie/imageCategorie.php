@@ -88,23 +88,10 @@ include('listerDir.php');
 								<button class="buttonConnexion"  >Connexion</button>
 							</div>
 
-							?>
-							>
-							<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
-					<button type="submit" class="buttonDeco"><i style="opacity:1" class="fa fa-unlock fa-3x"></i></button>
-								
-									<input type="hidden" name="categorie" value="caty"/>
-								</form>
+							
+							
 				</div>
 				
-				
-				<div class="suppr commande" >
-					<i class="fa fa-trash-o fa-3x"></i>
-				</div>
-				<a href="#?w=500" rel="popupAjouterImage" class="poplight">
-					<div class="ajouter commande" >
-						<i class="fa fa-cloud-upload fa-3x"></i>
-					</div>
 					<div class="deconnexion commande" 
 								<?php
 								if (!isset($_SESSION['admin']))
@@ -113,11 +100,11 @@ include('listerDir.php');
 								}
 								?>
 								>
-						<i class="fa fa-unlock fa-3x"></i>
 									<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
-										<input type="hidden" name="categorie" value="caty"/>
-										<input type="submit" value="Deconnexion"/>
-									</form>
+									<button type="submit" class="buttonDeco"><i style="opacity:1" class="fa fa-unlock fa-3x"></i></button>
+								
+									<input type="hidden" name="categorie" value="caty"/>
+								</form>
 					</div>
 					
 					

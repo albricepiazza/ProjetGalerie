@@ -161,6 +161,8 @@
 					   data: "rmImage="+tabNomImage+"&categorie="+categorie+"&chemin="+chemin,
 					   success: function(msg){
 							$(".laGalerieCategorie").empty();
+							$(".zoneSuppression").empty();
+							deplierBlockSupprimer();
 							$(".laGalerieCategorie").load("imageCategorie.php .galerieCategorie");
 							$('.info').html('<p>'+msg+'</p>');
 						}
@@ -385,7 +387,7 @@
 			lienPopUpSupprimerImageMiniature();
 			$('a.poplight[href^=#]').bind('click', clickSurLienPopUp);
 			$("#Recherche").bind('keyup',rechercherValeur);
-			$('suppr.commande').bind('click',deplierBlockSupprimer);
+			$('.suppr.commande').bind('click',deplierBlockSupprimer);
 		});
 		
 	});
