@@ -33,18 +33,21 @@
 		}
 		function enleverSourisAjouterCategorie()
 		{
-			$(this).animate({
-				backgroundColor: "transparent"
-			}, 400);
-			if($(this).find('.form').size() != 0)
+			if($(this).find('.form input[type=text]').attr('value') == "")
 			{
-				$(this).find('.form').animate({
-					opacity: 0
-				},400,function()
+				$(this).animate({
+					backgroundColor: "transparent"
+				}, 400);
+				if($(this).find('.form').size() != 0)
 				{
-					$(this).parent().find('span.ajouterCategorie').css('display','');
-					$(this).remove();
-				});
+					$(this).find('.form').animate({
+						opacity: 0
+					},400,function()
+					{
+						$(this).parent().find('span.ajouterCategorie').css('display','');
+						$(this).remove();
+					});
+				}
 			}
 		}
 		$('.galerie .image_galerie.ajouterCat').bind('mouseenter', passageSourisAjouterCategorie);
@@ -278,7 +281,7 @@
 		});
 		
 		/** Requete AJAX - Aller dans une categorie **/
-		$( ".image_galerie" ).live("click",function(){
+		$( ".image_galerie, .valeurAutocompletion .valeur" ).live("click",function(){
 			if($( ".image_galerie" ).find('input').attr('id') != "addCategorie")
 			{
 				var goCategorie = $(this).attr('id');
@@ -294,18 +297,30 @@
 		});
 		
 		/** Autocompletion sur les categories **/
-		function autoCompletion()
+		function rechercherValeur()
 		{
 			var tabCategorie = [];
-			$('.containGalerie .image_galerie').each(function()
+			$('.lesCategories .laCat').each(function()
 			{
-				tabCategorie.push($(this).find('.laCategorie').text());
+				tabCategorie.push($(this).text());
 			});
-			$("#Recherche").autocomplete({
-				source: tabCategorie
-			});
+			
+			var valeurRecherche = $(this).attr('value');
+			$('.valeur').remove();
+			if(valeurRecherche != "")
+			{
+				for(i=0;i<tabCategorie.length;i++)
+				{
+					if(tabCategorie[i].indexOf(valeurRecherche) != -1 && tabCategorie[i].indexOf(valeurRecherche) == 0)
+					{
+						$('.valeurAutocompletion').prepend("<span class='valeur' id="+tabCategorie[i]+">"+tabCategorie[i]+"</span>");
+					}
+				}
+			}
 		}
-		autoCompletion();		
+		$("#Recherche").bind('keyup',rechercherValeur);
+		/** On vide la champ recherche au lancement de la page **/
+		$("#Recherche").attr('value','');
 		
 		/** Re-affecter fonction après requete Ajax **/
 		$(document).ajaxComplete(function(event)
@@ -330,6 +345,7 @@
 			$('.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie').bind('mouseleave',enleverSourisImage);
 			lienPopUpSupprimerImageMiniature();
 			$('a.poplight[href^=#]').bind('click', clickSurLienPopUp);
+			$("#Recherche").bind('keyup',rechercherValeur);
 		});
 		
 	});

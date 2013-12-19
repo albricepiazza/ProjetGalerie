@@ -2,6 +2,7 @@
 session_start();
 $chemin= "categorie/";
 include('listerDir.php');
+
 ?>
 <html>
 	<head>
@@ -10,6 +11,14 @@ include('listerDir.php');
 			include('header.php');
 		?>
 	</head>
+	<div class="lesCategories">
+		<?php
+		for($nbr=0;$nbr<count($tabCategorie);$nbr++)
+		{
+			echo "<span class='laCat'>".$tabCategorie[$nbr]."</span>";
+		}
+		?>
+	</div>
 	<?php
 	if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
 	{
@@ -29,6 +38,8 @@ include('listerDir.php');
 			<div class="ui-widget">
 				<label for="Recherche">Rechercher catégorie: </label>
 				<input id="Recherche">
+				<div class="valeurAutocompletion">
+				</div>
 			</div>
 			<div class="deconnexion"
 			<?php
@@ -65,9 +76,21 @@ include('listerDir.php');
 							<?php
 								echo "<span class='nomCategorie'>Categorie : <span class='laCategorie'>".$tabCategorie[$i]."</span></span>";
 								$cheminImg = $chemin.$tabCategorie[$i]."/";
-								include('listerImg.php');
+								include('listerImgCategorie.php');
+								
+							if($tabImage[0] == "images/no-image.png" || $tabImage[0] == null)
+							{
 							?>
-							<img class="categorie_galerie " src="<?php echo $cheminImg.$tabImage[0]; ?>">
+								<img class="categorie_galerie " src="<?php echo $tabImage[0]; ?>">
+							<?php
+							}
+							else
+							{
+							?>
+								<img class="categorie_galerie " src="<?php echo $cheminImg.$tabImage[0]; ?>">
+							<?php
+							}
+							?>
 						</div>
 					</div>
 				<?php

@@ -4,6 +4,8 @@ chmod("../ProjetGalerie", 0755);
 $categorie = $_COOKIE['categorie'];
 $cheminImg= "categorie/".$categorie."/";
 include('listerImg.php');
+$chemin= "categorie/";
+include('listerDir.php');
 ?>
 <html>
 	<head>
@@ -12,6 +14,14 @@ include('listerImg.php');
 			include('header.php');
 		?>
 	</head>
+	<div class="lesCategories">
+		<?php
+		for($nbr=0;$nbr<count($tabCategorie);$nbr++)
+		{
+			echo "<span class='laCat'>".$tabCategorie[$nbr]."</span>";
+		}
+		?>
+	</div>
 	<?php
 	if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
 	{
@@ -64,6 +74,8 @@ include('listerImg.php');
 			<div class="ui-widget">
 				<label for="Recherche">Rechercher catégorie: </label>
 				<input id="Recherche">
+				<div class="valeurAutocompletion">
+				</div>
 			</div>
 			<div class="deconnexion"
 			<?php

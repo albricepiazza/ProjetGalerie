@@ -20,15 +20,15 @@
 	height: 90px;
 	cursor: pointer;
 }
-.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie img:hover,
-.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie img.active,
-.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie img.hover{
+.imageMiniatureGalerie img:hover,
+.imageMiniatureGalerie img.active,
+.imageMiniatureGalerie img.hover{
 	opacity: 0.6;
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
 	box-shadow: 0 0 10px 0px black;
 }
-.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie .titreImageMiniatureGalerie,
-.galerieJS .contentMiniGalerieJS .miniatureGalerieJS .imageMiniatureGalerie .descriptionImageMiniatureGalerie{
+.imageMiniatureGalerie .titreImageMiniatureGalerie,
+.imageMiniatureGalerie .descriptionImageMiniatureGalerie{
 	display: none;
 }
 .galerieJS .contentMiniGalerieJS .compteurGalerieJS{
@@ -105,4 +105,16 @@
 .galerieJS .contentGrandGalerieJS:hover .descriptionGalerieJS{
 	opacity: 0.6;
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+
+.supprimerMiniImageGalerie{
+	margin-top: 10px;
+	background-color: grey;
+}
+.supprimerMiniImageGalerie .zoneSuppression{
+	min-height: 90px;
+	margin-top: 10px;
+}
+.zoneSuppression .imageMiniatureGalerie{
+	margin-left: 15px;
 }
