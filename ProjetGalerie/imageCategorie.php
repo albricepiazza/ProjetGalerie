@@ -69,7 +69,7 @@ include('listerImg.php');
 							<button class="buttonConnexion"  >Connexion</button>
 						</div>
 				</div>
-				<div class="deconnexion commande"
+				<div class="deconnexion commande" 
 							<?php
 							if (!isset($_SESSION['admin']))
 							{ 
@@ -83,6 +83,7 @@ include('listerImg.php');
 									<input type="submit" value="Deconnexion"/>
 								</form>
 				</div>
+				
 				<div class="suppr commande" >
 					<i class="fa fa-trash-o fa-3x"></i>
 				</div>
