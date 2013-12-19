@@ -330,12 +330,11 @@ form#ajouterImage input[type=submit]{
 	display: none;
 }
 .valeurAutocompletion{
-	margin-left: 188px;
 	position: absolute;
 }
 .valeurAutocompletion span.valeur{
 	display: block;
-	width: 170px;
+	width: auto;
 	padding: 2px;
 	background-color: lightgrey;
 	border-top: 1px solid black;
@@ -355,13 +354,14 @@ form#ajouterImage input[type=submit]{
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index: -1;
-	color: black;
+	color: white;
 }
 .supprimerMiniImageGalerie .zoneSuppression{
 	min-height: 90px;
 	margin-top: 10px;
+	height: 100%;
 }
 .zoneSuppression .imageMiniatureGalerie{
-	margin-left: 15px;
+	margin-left: 18%;
+	margin-top: 15px;
 }

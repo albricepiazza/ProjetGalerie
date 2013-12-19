@@ -24,7 +24,6 @@
 			$('.contentGrandGalerieJS').prepend('<span class="navigationDroiteGalerieJS"></span>');
 			$('.contentGrandGalerieJS').prepend('<span class="navigationGaucheGalerieJS"></span>');
 			$('.contentGrandGalerieJS').prepend('<span class="descriptionGalerieJS"></span>');
-			$('.galerieJS').append('<div class="supprimerMiniImageGalerie"></div>');
 			
 			
 			/** Class Image pour remplir le tableau **/

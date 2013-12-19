@@ -113,6 +113,7 @@ include('listerDir.php');
 					<div class="ui-widget">
 						<label for="Recherche">Rechercher catégorie: </label>
 						<input id="Recherche">
+						<div class="valeurAutocompletion"></div>
 					</div>
 				</div>
 				<a href="index.php">
@@ -196,8 +197,8 @@ include('listerDir.php');
 			}
 			else
 			{
-				$(".connexion").css('opacity','0');
-				$(".connexion").css('display','none');
+				// $(".connexion").css('opacity','0');
+				// $(".connexion").css('display','none');
 			}
 		});
 		$(".co").mouseenter(function() {
@@ -206,8 +207,7 @@ include('listerDir.php');
 				$(".connexion").css('opacity','1');
 				$(".connexion").css('display','block');
 			}
-		});
-		$(".co").mouseleave(function() {
+		}).mouseleave(function() {
 			if($('.identifiant').val()!="")
 			{
 				$(".connexion").css('display','block');
@@ -215,8 +215,8 @@ include('listerDir.php');
 			}
 			else
 			{
-				$(".connexion").css('opacity','0');
-				$(".connexion").css('display','none');
+				// $(".connexion").css('opacity','0');
+				// $(".connexion").css('display','none');
 			}
 		});
 		
@@ -235,14 +235,13 @@ include('listerDir.php');
 				$(".ui-widget").css('display','none');
 			}
 		});
-	$(".rech").mouseenter(function() {
+		$(".rech").mouseenter(function() {
 			if($(".ui-widget").css('display') != "block")
 			{
 				$(".ui-widget").css('opacity','1');
 				$(".ui-widget").css('display','block');
 			}
-		}); 
-		 	$(".rech").mouseleave(function() {
+		}).mouseleave(function() {
 			if($('#Recherche').val()!="")
 			{
 				$(".ui-widget").css('display','block');
