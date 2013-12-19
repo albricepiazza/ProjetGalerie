@@ -23,7 +23,6 @@
 									'</div>');
 		}
 		imageAjouterUneCategorie();
-		
 		/** passage de la souris sur ajouterCategorie **/
 		function passageSourisAjouterCategorie()
 		{
