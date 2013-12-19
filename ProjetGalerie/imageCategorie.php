@@ -51,8 +51,59 @@ include('listerImg.php');
 		<div id="page">
 			<header>
 				<h1>Images par catégorie</h1>
-				<a href="index.php"><h3>Catégorie</h3></a>
 			</header>
+			<div class="cmd" >
+				<div class="co commande" 
+						<?php
+						if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
+						{
+							echo "style='display:none;'";
+						}
+						?>>
+					<i class="fa fa-key fa-3x"></i>
+						<div class="connexion">
+							<label for="identifiant">Identifiant</label>
+							<input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Identifiant"/>
+							<label for="motDePasse">Mot de passe</label>
+							<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
+							<button class="buttonConnexion"  >Connexion</button>
+						</div>
+				</div>
+				<div class="deconnexion commande"
+							<?php
+							if (!isset($_SESSION['admin']))
+							{ 
+								echo "style='display:none;'";
+							}
+							?>
+							>
+					<i class="fa fa-unlock fa-3x"></i>
+								<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
+									<input type="hidden" name="categorie" value="caty"/>
+									<input type="submit" value="Deconnexion"/>
+								</form>
+				</div>
+				<div class="suppr commande" >
+					<i class="fa fa-trash-o fa-3x"></i>
+				</div>
+				<a href="#?w=500" rel="popupAjouterImage" class="poplight">
+					<div class="ajouter commande" >
+						<i class="fa fa-cloud-upload fa-3x"></i>
+					</div>
+				</a>
+				<div class="rech commande" >
+				<i class="fa fa-search fa-3x"></i>
+					<div class="ui-widget">
+						<label for="Recherche">Rechercher catégorie: </label>
+						<input id="Recherche">
+					</div>
+				</div>
+				<a href="index.php">
+					<div class="returnCategorie commande" >
+						<i class="fa fa-mail-reply-all fa-3x"></i>
+					</div>
+				</a>
+			</div>
 			<div class="info">
 				<?php
 				if(isset($_GET['up']))
@@ -60,38 +111,8 @@ include('listerImg.php');
 					echo $up;
 				}
 				?>
-			</div>
-			<div class="ui-widget">
-				<label for="Recherche">Rechercher catégorie: </label>
-				<input id="Recherche">
-			</div>
-			<div class="deconnexion"
-			<?php
-			if (!isset($_SESSION['admin']))
-			{ 
-				echo "style='display:none;'";
-			}
-			?>
-			>
-			
-				<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
-					<input type="hidden" name="categorie" value="caty"/>
-					<input type="submit" value="Deconnexion"/>
-				</form>
-			</div>
-			<div class="connexion"
-			<?php
-			if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
-			{
-				echo "style='display:none;'";
-			}
-			?>
-			>
-				<input type="text" class="identifiant" id="identifiant" name="identifiant" placeholder="Identifiant"/>
-				<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
-				<button class="buttonConnexion"  >Connexion</button>
-			</div>
-			<a href="#?w=500" rel="popupAjouterImage" class="poplight ajouterImage">Ajouter une image</a>
+			</div>			
+			<!-- <a href="#?w=500" rel="popupAjouterImage" class="poplight ajouterImage">Ajouter une image</a>-->
 			<div id="popupAjouterImage" class="popup_block">
 				<form id="ajouterImage" method="POST" action="controllerImage.php" enctype="multipart/form-data">
 					 Image : <input type="file" name="avatar">
@@ -145,5 +166,79 @@ include('listerImg.php');
 				<input class="buttonNon" type="button" value="Non"/>
 			</div>
 		</div>
+		<script type="text/javascript">
+	$(document).ready(function()
+	{
+	//pour le menu connexion
+		$(".connexion").mouseleave(function() {
+			if($('.identifiant').val()!="")
+			{
+				$(".connexion").css('display','block');
+				$(".connexion").css('opacity','1');
+			}
+			else
+			{
+				$(".connexion").css('opacity','0');
+				$(".connexion").css('display','none');
+			}
+		});
+		$(".co").mouseenter(function() {
+			if($(".connexion").css('display') == "none")
+			{
+				$(".connexion").css('opacity','1');
+				$(".connexion").css('display','block');
+			}
+		});
+		$(".co").mouseleave(function() {
+			if($('.identifiant').val()!="")
+			{
+				$(".connexion").css('display','block');
+				$(".connexion").css('opacity','1');
+			}
+			else
+			{
+				$(".connexion").css('opacity','0');
+				$(".connexion").css('display','none');
+			}
+		});
+		
+		
+		
+	// pour le menu rechercher	
+	 	$(".ui-widget").mouseleave(function() {
+			if($('#Recherche').val()!="")
+			{
+				$(".ui-widget").css('display','block');
+				$(".ui-widget").css('opacity','1');
+			}
+			else
+			{
+				$(".ui-widget").css('opacity','0');
+				$(".ui-widget").css('display','none');
+			}
+		});
+	$(".rech").mouseenter(function() {
+			if($(".ui-widget").css('display') != "block")
+			{
+				$(".ui-widget").css('opacity','1');
+				$(".ui-widget").css('display','block');
+			}
+		}); 
+		 	$(".rech").mouseleave(function() {
+			if($('#Recherche').val()!="")
+			{
+				$(".ui-widget").css('display','block');
+				$(".ui-widget").css('opacity','1');
+			}
+			else
+			{
+				$(".ui-widget").css('opacity','0');
+				$(".ui-widget").css('display','none');
+			}
+		}); 
+	});
+		
+		
+		</script>
 	</body>
 </html>
