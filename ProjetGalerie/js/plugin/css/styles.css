@@ -107,14 +107,3 @@
 	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
 }
 
-.supprimerMiniImageGalerie{
-	margin-top: 10px;
-	background-color: grey;
-}
-.supprimerMiniImageGalerie .zoneSuppression{
-	min-height: 90px;
-	margin-top: 10px;
-}
-.zoneSuppression .imageMiniatureGalerie{
-	margin-left: 15px;
-}

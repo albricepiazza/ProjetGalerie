@@ -324,7 +324,7 @@ form#ajouterImage input[type=submit]{
 {
 	opacity: 0.8;
 	border: 1px solid transparent;
-
+}
 /** Autocompletion **/
 .lesCategories{
 	display: none;
@@ -345,4 +345,23 @@ form#ajouterImage input[type=submit]{
 	margin-top: 3px;
 	border-top: 0;
 
+}
+
+/** Suppression **/
+.supprimerMiniImageGalerie{
+	width: 200px;
+	height: 100%;
+	background-color: #404346;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	color: black;
+}
+.supprimerMiniImageGalerie .zoneSuppression{
+	min-height: 90px;
+	margin-top: 10px;
+}
+.zoneSuppression .imageMiniatureGalerie{
+	margin-left: 15px;
 }

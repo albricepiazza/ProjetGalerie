@@ -275,10 +275,6 @@
 			$(this).find('img').removeClass('hover');
 		});
 		
-		/** Suppression image **/
-		$('.supprimerMiniImageGalerie').prepend("<span>Glisser / Déposer pour supprimer l'image</span>");
-		$('.supprimerMiniImageGalerie').append('<div class="zoneSuppression"></div>');
-		
 		var $gallery = $( ".miniatureGalerieJS" );
 		var $trash = $( ".supprimerMiniImageGalerie .zoneSuppression" );
 		$( ".imageMiniatureGalerie", $gallery ).draggable({

@@ -62,6 +62,11 @@ include('listerDir.php');
 			<header>
 				<h1>Images par catégorie</h1>
 			</header>
+			<div class="supprimerMiniImageGalerie">
+				<span>Glisser / Déposer pour supprimer l'image</span>
+				<div class="zoneSuppression">
+				</div>
+			</div>
 			<div class="cmd" >
 				<div class="co commande" 
 						<?php
