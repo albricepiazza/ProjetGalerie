@@ -54,7 +54,7 @@ header{
 	cursor: pointer;
 }
 .galerie .image_galerie span.ajouterCategorie{
-	background-image: url('../images/sprite.png');
+	background-image: url(http://localhost/ProjetGalerie/images/sprite.png);
 	margin-left: 35%;
 	margin-right: 35%;
 	background-position: -180px 42px;
@@ -78,7 +78,7 @@ header{
 	width: 42px;
 	background-position: -288px -26px;
 	opacity: 0.8;
-	background-image: url('../images/sprite.png');
+	background-image: url(http://localhost/ProjetGalerie/images/sprite.png);
 	opacity: 0;
 	z-index: 1000;
 }
@@ -324,25 +324,4 @@ form#ajouterImage input[type=submit]{
 {
 	opacity: 0.8;
 	border: 1px solid transparent;
-
-/** Autocompletion **/
-.lesCategories{
-	display: none;
-}
-.valeurAutocompletion{
-	margin-left: 188px;
-	position: absolute;
-}
-.valeurAutocompletion span.valeur{
-	display: block;
-	width: 170px;
-	padding: 2px;
-	background-color: lightgrey;
-	border-top: 1px solid black;
-	cursor: pointer;
-}
-.valeurAutocompletion span.valeur:first-child{
-	margin-top: 3px;
-	border-top: 0;
-
 }

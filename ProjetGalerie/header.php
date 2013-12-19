@@ -8,3 +8,5 @@
 <link rel="stylesheet" href="js/autocompletion/jquery-ui.css" type="text/css" />
 <script type="text/javascript" src="js/autocompletion/jquery-ui.js"></script>
 <script type="text/javascript" src="js/autocompletion/jquery-1.9.1.js"></script>
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/font-awesome-4.0.3/css/font-awesome.css"/>

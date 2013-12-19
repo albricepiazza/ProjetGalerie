@@ -4,8 +4,6 @@ chmod("../ProjetGalerie", 0755);
 $categorie = $_COOKIE['categorie'];
 $cheminImg= "categorie/".$categorie."/";
 include('listerImg.php');
-$chemin= "categorie/";
-include('listerDir.php');
 ?>
 <html>
 	<head>
@@ -14,14 +12,6 @@ include('listerDir.php');
 			include('header.php');
 		?>
 	</head>
-	<div class="lesCategories">
-		<?php
-		for($nbr=0;$nbr<count($tabCategorie);$nbr++)
-		{
-			echo "<span class='laCat'>".$tabCategorie[$nbr]."</span>";
-		}
-		?>
-	</div>
 	<?php
 	if (isset($_SESSION['admin']) && $_SESSION['admin'] == true)
 	{
@@ -124,8 +114,7 @@ include('listerDir.php');
 				}
 				?>
 			</div>			
-			
-			
+			<!-- <a href="#?w=500" rel="popupAjouterImage" class="poplight ajouterImage">Ajouter une image</a>-->
 			<div id="popupAjouterImage" class="popup_block">
 				<form id="ajouterImage" method="POST" action="controllerImage.php" enctype="multipart/form-data">
 					 Image : <input type="file" name="avatar">

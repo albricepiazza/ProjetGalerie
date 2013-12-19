@@ -24,6 +24,7 @@
 			$('.contentGrandGalerieJS').prepend('<span class="navigationDroiteGalerieJS"></span>');
 			$('.contentGrandGalerieJS').prepend('<span class="navigationGaucheGalerieJS"></span>');
 			$('.contentGrandGalerieJS').prepend('<span class="descriptionGalerieJS"></span>');
+			$('.galerieJS').append('<div class="supprimerMiniImageGalerie"></div>');
 			
 			
 			/** Class Image pour remplir le tableau **/
@@ -60,8 +61,7 @@
 			
 			/** Declaration des variables **/
 			var blockImageMiniature = $('.galerieJS .contentMiniGalerieJS .miniatureGalerieJS');
-			var blockImageGrand = $('.galerieJS .contentGrandGalerieJS .imageGrandGalerieJS');
-			$(".contentMiniGalerieJS .imageMiniatureGalerie").sortable();
+			var blockImageGrand = $('.galerieJS .contentGrandGalerieJS .imageGrandGalerieJS'); 
 			
 			/** fonction qui affiche les titres et descriptions des images **/
 			function affichageTitreEtDescription(blockImage)
@@ -275,6 +275,93 @@
 			$(this).find('img').removeClass('hover');
 		});
 		
+		/** Suppression image **/
+		$('.supprimerMiniImageGalerie').prepend("<span>Glisser / Déposer pour supprimer l'image</span>");
+		$('.supprimerMiniImageGalerie').append('<div class="zoneSuppression"></div>');
+		
+		var $gallery = $( ".miniatureGalerieJS" );
+		var $trash = $( ".supprimerMiniImageGalerie .zoneSuppression" );
+		$( ".imageMiniatureGalerie", $gallery ).draggable({
+		  cancel: "a.ui-icon", // clicking an icon won't initiate dragging
+		  revert: "invalid", // when not dropped, the item will revert back to its initial position
+		  containment: "document",
+		  helper: "clone",
+		  cursor: "move"
+		});
+		$trash.droppable({
+		  accept: ".miniatureGalerieJS > .imageMiniatureGalerie",
+		  drop: function( event, ui ) {
+			deleteImage( ui.draggable );
+		  }
+		});
+		$gallery.droppable({
+		  accept: ".supprimerMiniImageGalerie > .zoneSuppression > .gallery > .imageMiniatureGalerie",
+		  drop: function( event, ui ) {
+			recycleImage( ui.draggable );
+		  }
+		});
+		
+		function deleteImage( $item )
+		{
+		  $item.fadeOut(function() {
+			var $list = $( "ul", $trash ).length ?
+			  $( "ul", $trash ) :
+			  $( "<ul class='gallery ui-helper-reset'/>" ).appendTo( $trash );
+	 
+			$item.find( "a.ui-icon-trash" ).remove();
+			$item.appendTo( $list ).fadeIn();
+		  });
+		}
+		
+		function recycleImage( $item ) {
+		  $item.fadeOut(function() {
+			$item
+			  .find( "a.ui-icon-refresh" )
+				.remove()
+			  .end()
+			  .css( "height", "80px")
+			  .find( "img" )
+			  .end()
+			  .appendTo( $gallery )
+			  .fadeIn();
+		  });
+		}
+		
+		function viewLargerImage( $link )
+		{
+		  var src = $link.attr( "href" ),
+			title = $link.siblings( "img" ).attr( "alt" ),
+			$modal = $( "img[src$='" + src + "']" );
+	 
+		  if ( $modal.length ) {
+			$modal.dialog( "open" );
+		  } else {
+			var img = $( "<img alt='" + title + "' width='384' height='288' style='display: none; padding: 8px;' />" )
+			  .attr( "src", src ).appendTo( "body" );
+			setTimeout(function() {
+			  img.dialog({
+				title: title,
+				width: 400,
+				modal: true
+			  });
+			}, 1 );
+		  }
+		}
+		
+		$( ".miniatureGalerieJS > .imageMiniatureGalerie" ).click(function( event ) {
+		  var $item = $( this ),
+			$target = $( event.target );
+	 
+		  if ( $target.is( "a.ui-icon-trash" ) ) {
+			deleteImage( $item );
+		  } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+			viewLargerImage( $target );
+		  } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+			recycleImage( $item );
+		  }
+	 
+		  return false;
+		});
 		/** return this pour continuer la chaine **/
 		return this;
 	}

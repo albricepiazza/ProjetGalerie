@@ -1,12 +1,12 @@
 body{
 	font-size: 14px;
 	margin: 0;
-	background-color: #F2F1F1;
+	background-color: lightgray;
 }
 #page{
 	width: 1200px;
 	margin: auto;
-	background-color: #F2F1F1;
+	background-color: white;
 	border-radius: 20px;
 }
 
@@ -14,6 +14,10 @@ header{
 	text-align: center;
 }
 
+.connexion form input{
+	display: block;
+	margin: 10px 0 10px 0;
+}
 .galerie{
 	margin: 0 20px 0 20px;
 }
@@ -114,9 +118,9 @@ header{
 }
 .popup_block{
 	display: none; /*--masqué par défaut--*/
-	background: #F2F1F1;
+	background: #fff;
 	padding: 20px;
-	border: 20px solid #404346;
+	border: 20px solid #ddd;
 	float: left;
 	font-size: 1.2em;
 	position: fixed;
@@ -162,7 +166,7 @@ input.buttonNon{
 #popupSupprimerCategorie{
 	text-align: center;
 }
-/* a.ajouterImage{
+a.ajouterImage{
 	display: block;
 	margin-bottom: 20px;
 	font-size: 22px;
@@ -177,7 +181,7 @@ input.buttonNon{
 a.ajouterImage:hover{
 	color: white;
 	background-color: black;
-} */
+}
 
 form#ajouterImage input,
 form#ajouterImage textarea{
@@ -192,138 +196,6 @@ form#ajouterImage input[type=submit]{
 .rmImage{
 	display: none;
 }
-
-.cmd
-{
-	width: 100px;
-	height: 100%;
-	background-color: #404346;
-	position: fixed;
-	right: 0;
-	top : 0;
-}
-.co
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-/* 	background-color: blue;
- */}
-.connexion
-{
-	display:none;
-	font-size: 10px;
-	position: absolute;
-	top: 0px;
-	right: 100px;
-	opacity: 0;
- 
-	background-color: white;
-/* 	padding: 4px 10px 4px 2px;
- */ 
-	-webkit-box-shadow: 2px 2px 2px #333333;
-	-moz-box-shadow: 2px 2px 2px #333333;
-	-o-box-shadow: 2px 2px 2px #333333;
-	box-shadow: 2px 2px 2px #333333;
- 
-	-webkit-border-radius: 0 3px 3px 0;
-	-moz-border-radius: 0 3px 3px 0;
-	-o-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
- 
-	-webkit-transition: opacity 0.5s ease-in-out;
-	-moz-transition: opacity 0.5s ease-in-out;
-	-o-transition: opacity 0.5s ease-in-out;
-	transition: opacity 0.5s ease-in-out;
-}
-.deconnexion
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-/* 	background-color: red;
- */}
-.suppr
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-/* 	background-color: yellow;
- */}
-.ajouter
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-/* 	background-color: gray;
- */}
-.rech
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-/* 	background-color: blue;
- */}
-.ui-widget
-{
-	display:none;
-	font-size: 10px;
-	position: relative;
-	top: -50px;
-	right: 100px;
-	opacity: 0;
-	z-index: 1000;
-	background-color: white;
-	-webkit-box-shadow: 2px 2px 2px #333333;
-	-moz-box-shadow: 2px 2px 2px #333333;
-	-o-box-shadow: 2px 2px 2px #333333;
-	box-shadow: 2px 2px 2px #333333;
- 
-	-webkit-border-radius: 0 3px 3px 0;
-	-moz-border-radius: 0 3px 3px 0;
-	-o-border-radius: 0 3px 3px 0;
-	border-radius: 0 3px 3px 0;
- 
-	-webkit-transition: opacity 0.5s ease-in-out;
-	-moz-transition: opacity 0.5s ease-in-out;
-	-o-transition: opacity 0.5s ease-in-out;
-	transition: opacity 0.5s ease-in-out;
-}
-#Recherche
-{
-	width: 100px;
-}
-.fa
-{
-	margin-top:30px;
-	margin-left:30px;
-	color: #FEFDFD;
-}
-.suppr .fa
-{
-	margin-left:35px;
-}
-.returnCategorie
-{
-	width: 100px;
-	height: 100px;
-	position: relative;
-}
-.commande:hover
-{
-	cursor: pointer;
-	opacity: 1;
-	color : #707070;
-}
-.commande:hover .fa
-{
-	opacity: 1;
-	color : #707070;
-}
-.commande
-{
-	opacity: 0.8;
-	border: 1px solid transparent;
 
 /** Autocompletion **/
 .lesCategories{
@@ -344,5 +216,4 @@ form#ajouterImage input[type=submit]{
 .valeurAutocompletion span.valeur:first-child{
 	margin-top: 3px;
 	border-top: 0;
-
 }
