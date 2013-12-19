@@ -111,7 +111,7 @@
 			});
 		}
 		lienPopUpSupprimerImageMiniature();
-		
+
 		/** afficher croix suppression au passage de la souris **/
 		function passageSourisImage()
 		{
@@ -146,13 +146,19 @@
 			{
 				// Requete ajax pour supprimer une image
 				$( ".buttonOui" ).live("click",function(){
-					var rmImage = leLienClique.parents().find('img').attr('id');
-					var categorie = $("form#ajouterImage input[name=categorie]").attr('value');
+				var tabNomImage=[];
+				$('.zoneSuppression .imageMiniatureGalerie').each(function()
+				{
+					tabNomImage.push($(this).find('img').attr('id'));
+				});
+			
+/* 					var rmImage = leLienClique.parents().find('img').attr('id');
+ */					var categorie = $("form#ajouterImage input[name=categorie]").attr('value');
 					var chemin = $("form#ajouterImage input[name=cheminImg]").attr('value');
 					$.ajax({
 					   type: "POST",
 					   url: "\controllerImage.php",
-					   data: "rmImage="+rmImage+"&categorie="+categorie+"&chemin="+chemin,
+					   data: "rmImage="+tabNomImage+"&categorie="+categorie+"&chemin="+chemin,
 					   success: function(msg){
 							$(".laGalerieCategorie").empty();
 							$(".laGalerieCategorie").load("imageCategorie.php .galerieCategorie");

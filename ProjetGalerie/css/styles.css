@@ -365,3 +365,18 @@ form#ajouterImage input[type=submit]{
 	margin-left: 18%;
 	margin-top: 15px;
 }
+.faTrash
+{
+	margin-left: 33%;
+}
+.spanTrash
+{
+	display: block;
+	text-align: center;
+}
+.buttonDeco
+{
+	background: none;
+	border: none;
+	margin-left: 0px;
+}

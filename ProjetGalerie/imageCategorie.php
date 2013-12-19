@@ -63,7 +63,10 @@ include('listerDir.php');
 				<h1>Images par catégorie</h1>
 			</header>
 			<div class="supprimerMiniImageGalerie">
-				<span>Glisser / Déposer pour supprimer l'image</span>
+				<a rel="popupSupprimerImage" class="poplight" href="#?w=500" >
+					<i class="faTrash fa fa-trash-o fa-5x"></i>
+				</a>
+				<span class="spanTrash">Glisser / Déposer pour supprimer l'image</span>
 				<div class="zoneSuppression">
 				</div>
 			</div>
@@ -92,10 +95,10 @@ include('listerDir.php');
 							}
 							?>
 							>
-					<i class="fa fa-unlock fa-3x"></i>
-								<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
+							<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
+					<button type="submit" class="buttonDeco"><i style="opacity:1" class="fa fa-unlock fa-3x"></i></button>
+								
 									<input type="hidden" name="categorie" value="caty"/>
-									<input type="submit" value="Deconnexion"/>
 								</form>
 				</div>
 				

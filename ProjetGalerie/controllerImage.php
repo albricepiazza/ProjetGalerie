@@ -61,27 +61,31 @@ if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)
 	$nomImage = $_POST['rmImage'];
 	$categorie = $_POST['categorie'];
 	$dossier = $_POST['chemin'];
-
-	// supression des données description et title de l'image
-	$file = $dossier.$categorie.".txt";
-	$data = file($file);
-	$searchDescription = '$descriptionImage_'.$nomImage." = ";
-	$searchTitle = '$titleImage_'.$nomImage." = ";
-	$searchImg = "//-------------".$nomImage;
-	for($i = 0, $c = count($data); $i < $c; $i++) {
-			if(strpos($data[$i],$searchDescription) === 0 || strpos($data[$i], $searchTitle) === 0 || strpos($data[$i], $searchImg) === 0) {
-					unset($data[$i]);
-			}
-	}
-	file_put_contents($file, $data);
-
-		if(unlink($dossier.$nomImage))
-		{
-			echo "L'image ".$nomImage."a été supprimé avec succès";
+	
+	$NomsImage = explode(',',$nomImage);
+	foreach($NomsImage as $nomImage)
+	{
+		// supression des données description et title de l'image
+		$file = $dossier.$categorie.".txt";
+		$data = file($file);
+		$searchDescription = '$descriptionImage_'.$nomImage." = ";
+		$searchTitle = '$titleImage_'.$nomImage." = ";
+		$searchImg = "//-------------".$nomImage;
+		for($i = 0, $c = count($data); $i < $c; $i++) {
+				if(strpos($data[$i],$searchDescription) === 0 || strpos($data[$i], $searchTitle) === 0 || strpos($data[$i], $searchImg) === 0) {
+						unset($data[$i]);
+				}
 		}
-		else
-		{
-			echo "L'image ".$nomImage."a n'a pas pu être supprimé";
+		file_put_contents($file, $data);
+
+			if(unlink($dossier.$nomImage))
+			{
+				echo "L'image ".$nomImage."a été supprimé avec succès";
+			}
+			else
+			{
+				echo "L'image ".$nomImage."a n'a pas pu être supprimé";
+			}
 		}
 	}
 	
