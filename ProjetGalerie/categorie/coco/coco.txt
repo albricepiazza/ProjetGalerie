@@ -1,0 +1,4 @@
+$descriptionImage_rere.jpg = rere
+$titleImage_rere.jpg = rere
+$descriptionImage_coco.jpg = ezrezrt
+$titleImage_coco.jpg = zetr
