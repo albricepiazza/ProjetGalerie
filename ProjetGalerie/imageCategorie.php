@@ -63,7 +63,10 @@ include('listerDir.php');
 				<h1>Images par catégorie</h1>
 			</header>
 			<div class="supprimerMiniImageGalerie">
-				<span>Glisser / Déposer pour supprimer l'image</span>
+				<a rel="popupSupprimerImage" class="poplight" href="#?w=500" >
+					<i class="faTrash fa fa-trash-o fa-5x"></i>
+				</a>
+				<span class="spanTrash">Glisser / Déposer pour supprimer l'image</span>
 				<div class="zoneSuppression">
 				</div>
 			</div>
@@ -84,6 +87,23 @@ include('listerDir.php');
 								<input type="password" class="motDePasse" id="motDePasse" name="motDePasse" placeholder="Mot de passe"/>
 								<button class="buttonConnexion"  >Connexion</button>
 							</div>
+
+							?>
+							>
+							<form method="POST" id="formulaire_deconnexion" action="deconnexion.php">
+					<button type="submit" class="buttonDeco"><i style="opacity:1" class="fa fa-unlock fa-3x"></i></button>
+								
+									<input type="hidden" name="categorie" value="caty"/>
+								</form>
+				</div>
+				
+				
+				<div class="suppr commande" >
+					<i class="fa fa-trash-o fa-3x"></i>
+				</div>
+				<a href="#?w=500" rel="popupAjouterImage" class="poplight">
+					<div class="ajouter commande" >
+						<i class="fa fa-cloud-upload fa-3x"></i>
 					</div>
 					<div class="deconnexion commande" 
 								<?php
